@@ -1,0 +1,15 @@
+﻿version: 0.2
+phases:
+  install:
+    runtime-versions:
+      dotnet: 3.1
+  build:
+    commands:
+      - dotnet build IPFIN.API.csproj
+  post_build:
+    commands:
+      - dotnet publish -r linux-x64 IPFIN.API.csproj
+artifacts:  
+  files:
+    - bin/Debug/netcoreapp3.1/linux-x64/publish/**/*
+  discard-paths: yes
